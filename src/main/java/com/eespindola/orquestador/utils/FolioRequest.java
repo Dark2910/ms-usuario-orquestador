@@ -7,9 +7,13 @@ import java.util.Random;
 
 public class FolioRequest {
 
-    public static String CrearFolioRequest() {
-        Random random = new Random();
+    private static final Random random = new Random();
 
+    private FolioRequest() {
+        throw new IllegalStateException("Util class");
+    }
+
+    public static String getFolio() {
         String[] numeros = new String[20];
         //StringBuilder numeroAleatorio = new StringBuilder();
 

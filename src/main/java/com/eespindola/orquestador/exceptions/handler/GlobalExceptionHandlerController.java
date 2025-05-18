@@ -1,6 +1,6 @@
 package com.eespindola.orquestador.exceptions.handler;
 
-import com.eespindola.orquestador.dto.Result;
+import com.eespindola.orquestador.models.dto.Result;
 import com.eespindola.orquestador.exceptions.InvalidArgument;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -32,7 +32,14 @@ public class GlobalExceptionHandlerController {
     }
 
     private String mensajeDeErrorFormateado(FieldError fieldError){
-        return fieldError.getDefaultMessage().concat(" ( ").concat(fieldError.getField() + " ).");
+
+        String mensaje = fieldError.getDefaultMessage();
+        String campo =  fieldError.getField();
+
+        mensaje = (mensaje != null)? mensaje : "No error message";
+//        campo = (campo != null)? campo : "unknown field";
+
+        return mensaje + "(" + campo + ")";
     }
 
 }
