@@ -1,5 +1,7 @@
 package com.eespindola.orquestador.services.imp;
 
+import com.eespindola.orquestador.annotations.AroundAOP;
+import com.eespindola.orquestador.annotations.BeforeAOP;
 import com.eespindola.orquestador.exceptions.InvalidArgument;
 import com.eespindola.orquestador.models.dto.Result;
 import com.eespindola.orquestador.models.Usuario;
@@ -24,32 +26,35 @@ public class OrquestadorServiceImp implements OrquestadorService {
     private final InputValidator inputValidator;
 
     @Autowired
-    public OrquestadorServiceImp(InputValidator validator){
+    public OrquestadorServiceImp(InputValidator validator) {
         this.restTemplate = new RestTemplate();
         this.inputValidator = validator;
     }
 
+    @AroundAOP
     @Override
-    public Result<Usuario> GetAll(HttpSession session) {
+    public Result<Usuario> GetAll(HttpSession session, Result<Void> request) {
 //        session.setAttribute("session", FolioRequest.CrearFolioRequest());
+//        HttpHeaders httpHeader = new HttpHeaders();
+//        httpHeader.add("folioRequest", FolioRequest.getFolio());
 
-        HttpHeaders httpHeader = new HttpHeaders();
-        httpHeader.add("folioRequest", FolioRequest.getFolio());
-
-        HttpEntity<Result<Usuario>> httpEntity = new HttpEntity<>(null, httpHeader);
+//        HttpEntity<Result<Usuario>> httpEntity = new HttpEntity<>(null, httpHeader);
+        HttpEntity<Result<Void>> httpEntity = new HttpEntity<>(request);
 
         ResponseEntity<Result<Usuario>> response = restTemplate.exchange(
                 Constantes.ENDPOINT_GET_ALL,
                 HttpMethod.POST,
                 httpEntity,
-                new ParameterizedTypeReference<>() {}
+                new ParameterizedTypeReference<>() {
+                }
         );
 
-        return  response.getBody();
+        return response.getBody();
     }
 
+    @AroundAOP
     @Override
-    public Result<Usuario> GetByFolio(String folioId, HttpSession session) {
+    public Result<Usuario> GetByFolio(HttpSession session, String folioId) {
         //session.setAttribute("session", FolioRequest.CrearFolioRequest());
 
         HttpHeaders httpHeader = new HttpHeaders();
@@ -61,57 +66,56 @@ public class OrquestadorServiceImp implements OrquestadorService {
                 Constantes.ENDPOINT_GET_BY_FOLIO,
                 HttpMethod.POST,
                 httpEntity,
-                new ParameterizedTypeReference<>() {},
+                new ParameterizedTypeReference<>() {
+                },
                 folioId
         );
 
-        return  response.getBody();
+        return response.getBody();
     }
 
+    @AroundAOP
     @Override
-    public Result<Void> Post(Usuario usuario, HttpSession session) throws InvalidArgument {
-        //session.setAttribute("session", FolioRequest.CrearFolioRequest());
+    public Result<Void> Post(HttpSession session, Result<Usuario> request) throws InvalidArgument {
+//        session.setAttribute("session", FolioRequest.CrearFolioRequest());
+//        HttpHeaders httpHeader = new HttpHeaders();
+//        httpHeader.add("folioRequest", FolioRequest.getFolio());
 
-        inputValidator.bindingResult(usuario, "Usuario");
-
-        HttpHeaders httpHeader = new HttpHeaders();
-        httpHeader.add("folioRequest", FolioRequest.getFolio());
-
-        HttpEntity<Usuario> httpEntity = new HttpEntity<>(usuario, httpHeader);
+        HttpEntity<Result<Usuario>> httpEntity = new HttpEntity<>(request);
 
         ResponseEntity<Result<Void>> response = restTemplate.exchange(
                 Constantes.ENDPOINT_POST,
                 HttpMethod.POST,
                 httpEntity,
-                new ParameterizedTypeReference<>() {}
+                new ParameterizedTypeReference<>() {
+                }
         );
 
-        return  response.getBody();
+        return response.getBody();
     }
 
+    @AroundAOP
     @Override
-    public Result<Void> Put(Usuario usuario, HttpSession session) throws InvalidArgument {
-        //session.setAttribute("session", FolioRequest.CrearFolioRequest());
+    public Result<Void> Put(HttpSession session, Result<Usuario> request) throws InvalidArgument {
+//        session.setAttribute("session", FolioRequest.CrearFolioRequest());
+//        HttpHeaders httpHeader = new HttpHeaders();
+//        httpHeader.add("folioRequest", FolioRequest.getFolio());
 
-        inputValidator.bindingResult(usuario, "Usuario");
-
-        HttpHeaders httpHeader = new HttpHeaders();
-        httpHeader.add("folioRequest", FolioRequest.getFolio());
-
-        HttpEntity<Usuario> httpEntity = new HttpEntity<>(usuario, httpHeader);
+        HttpEntity<Result<Usuario>> httpEntity = new HttpEntity<>(request);
 
         ResponseEntity<Result<Void>> response = restTemplate.exchange(
                 Constantes.ENDPOINT_PUT,
                 HttpMethod.POST,
                 httpEntity,
-                new ParameterizedTypeReference<>() {}
+                new ParameterizedTypeReference<>() {
+                }
         );
 
-        return  response.getBody();
+        return response.getBody();
     }
 
     @Override
-    public Result<Void> Delete(String folioId, HttpSession session) {
+    public Result<Void> Delete(HttpSession session, String folioId) {
         //session.setAttribute("session", FolioRequest.CrearFolioRequest());
 
         HttpHeaders httpHeader = new HttpHeaders();
@@ -123,11 +127,12 @@ public class OrquestadorServiceImp implements OrquestadorService {
                 Constantes.ENDPOINT_DELETE,
                 HttpMethod.POST,
                 httpEntity,
-                new ParameterizedTypeReference<>() {},
+                new ParameterizedTypeReference<>() {
+                },
                 folioId
         );
 
-        return  response.getBody();
+        return response.getBody();
     }
 
 

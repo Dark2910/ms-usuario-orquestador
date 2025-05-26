@@ -8,12 +8,11 @@ import lombok.*;
 import java.util.List;
 
 @Data
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Result <T>{
+public class Result <T> extends Folio{
 
     @JsonProperty("isCorrect")
     private Boolean isCorrect;
