@@ -12,10 +12,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.eespindola.ms</groupId>
+    <groupId>com.eespindola.usuario</groupId>
     <artifactId>orquestador</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ms-orquestador</name>
+    <name>ms-usuario-orquestador</name>
     <description>Demo</description>
     <url/>
 
