@@ -17,8 +17,8 @@ public class Usuario {
     @JsonProperty("idUsuario")
     private int idUsuario;
 
-    @JsonProperty("folio")
-    private String folio;
+    @JsonProperty("folioId")
+    private String folioId;
 
     @JsonProperty("nombre")
     @NotBlank(message = Constantes.NOT_BLANK)

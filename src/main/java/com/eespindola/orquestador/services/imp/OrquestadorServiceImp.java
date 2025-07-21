@@ -38,7 +38,6 @@ public class OrquestadorServiceImp implements OrquestadorService {
 //        HttpHeaders httpHeader = new HttpHeaders();
 //        httpHeader.add("folioRequest", FolioRequest.getFolio());
 
-//        HttpEntity<Result<Usuario>> httpEntity = new HttpEntity<>(null, httpHeader);
         HttpEntity<Result<Void>> httpEntity = new HttpEntity<>(request);
 
         ResponseEntity<Result<Usuario>> response = restTemplate.exchange(
@@ -55,17 +54,16 @@ public class OrquestadorServiceImp implements OrquestadorService {
     @AroundAOP
     @Override
     public Result<Usuario> GetByFolio(HttpSession session, String folioId) {
-        //session.setAttribute("session", FolioRequest.CrearFolioRequest());
+//        session.setAttribute("session", FolioRequest.CrearFolioRequest());
+//        HttpHeaders httpHeader = new HttpHeaders();
+//        httpHeader.add("folioRequest", FolioRequest.getFolio());
 
-        HttpHeaders httpHeader = new HttpHeaders();
-        httpHeader.add("folioRequest", FolioRequest.getFolio());
-
-        HttpEntity<Result<Usuario>> httpEntity = new HttpEntity<>(null, httpHeader);
+//        HttpEntity<Result<Void>> httpEntity = new HttpEntity<>(null, null);
 
         ResponseEntity<Result<Usuario>> response = restTemplate.exchange(
                 Constantes.ENDPOINT_GET_BY_FOLIO,
                 HttpMethod.POST,
-                httpEntity,
+                HttpEntity.EMPTY,
                 new ParameterizedTypeReference<>() {
                 },
                 folioId

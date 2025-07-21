@@ -3,28 +3,17 @@ package com.eespindola.orquestador.interceptorAOP;
 
 import com.eespindola.orquestador.exceptions.InvalidArgument;
 import com.eespindola.orquestador.models.Usuario;
-import com.eespindola.orquestador.models.dto.Folio;
 import com.eespindola.orquestador.models.dto.Result;
 import com.eespindola.orquestador.utils.FolioRequest;
 import com.eespindola.orquestador.utils.InputValidator;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 @Aspect
 @Component
@@ -72,7 +61,7 @@ public class MyInterceptorAop {
         Object [] args = joinPoint.getArgs();
         for(Object arg : args){
             if (arg instanceof Result<?>) {
-                ((Result<?>) arg).setFolio(FolioRequest.getFolio());
+                ((Result<?>) arg).setFolioRequest(FolioRequest.getFolio());
                 hasUsuario = userExists((Result<?>) arg, usuarios);
             }
         }
