@@ -1,9 +1,9 @@
 package com.eespindola.orquestador.utils;
 
-public class Constantes {
+public class ConstantesUtils {
 
-    private Constantes() {
-        throw new IllegalStateException("");
+    private ConstantesUtils() {
+        throw new IllegalStateException("Util class");
     }
 
     public static final String NOT_NULL = "No puede dejar el campo como nulo";

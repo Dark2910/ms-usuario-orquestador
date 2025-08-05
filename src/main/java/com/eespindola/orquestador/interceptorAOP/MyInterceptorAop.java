@@ -1,10 +1,9 @@
 package com.eespindola.orquestador.interceptorAOP;
 
-
 import com.eespindola.orquestador.exceptions.InvalidArgument;
 import com.eespindola.orquestador.models.Usuario;
 import com.eespindola.orquestador.models.dto.Result;
-import com.eespindola.orquestador.utils.FolioRequest;
+import com.eespindola.orquestador.utils.FolioUtils;
 import com.eespindola.orquestador.utils.InputValidator;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -61,7 +60,7 @@ public class MyInterceptorAop {
         Object [] args = joinPoint.getArgs();
         for(Object arg : args){
             if (arg instanceof Result<?>) {
-                ((Result<?>) arg).setFolioRequest(FolioRequest.getFolio());
+                ((Result<?>) arg).setFolioRequest(FolioUtils.createFolioRequest());
                 hasUsuario = userExists((Result<?>) arg, usuarios);
             }
         }

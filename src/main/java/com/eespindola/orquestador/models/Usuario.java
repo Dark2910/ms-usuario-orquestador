@@ -1,6 +1,6 @@
 package com.eespindola.orquestador.models;
 
-import com.eespindola.orquestador.utils.Constantes;
+import com.eespindola.orquestador.utils.ConstantesUtils;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Email;
@@ -21,32 +21,32 @@ public class Usuario {
     private String folioId;
 
     @JsonProperty("nombre")
-    @NotBlank(message = Constantes.NOT_BLANK)
+    @NotBlank(message = ConstantesUtils.NOT_BLANK)
     private String nombre;
 
     @JsonProperty("apellidoPaterno")
-    @NotBlank(message = Constantes.NOT_BLANK)
+    @NotBlank(message = ConstantesUtils.NOT_BLANK)
     private String apellidoPaterno;
 
     @JsonProperty("apellidoMaterno")
-    @NotBlank(message = Constantes.NOT_BLANK)
+    @NotBlank(message = ConstantesUtils.NOT_BLANK)
     private String apellidoMaterno;
 
     @JsonProperty("fechaNacimiento")
-    @NotBlank(message = Constantes.NOT_BLANK)
+    @NotBlank(message = ConstantesUtils.NOT_BLANK)
     private String fechaNacimiento;
 
     @JsonProperty("username")
-    @NotBlank(message = Constantes.NOT_BLANK)
+    @NotBlank(message = ConstantesUtils.NOT_BLANK)
     private String username;
 
     @JsonProperty("email")
     @Email(message = "Por favor inserta un correo valido.")
-    @NotBlank(message = Constantes.NOT_BLANK)
+    @NotBlank(message = ConstantesUtils.NOT_BLANK)
     private String email;
 
     @JsonProperty("password")
-    @NotBlank(message = Constantes.NOT_BLANK)
+    @NotBlank(message = ConstantesUtils.NOT_BLANK)
     private String password;
 
     @JsonProperty("status")

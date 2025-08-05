@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface OrquestadorService {
 
     @PostMapping
-    Result<Usuario> GetAll(HttpSession session, Result<Void> request);
+    Result<Usuario> getAll(HttpSession session);
 
     @PostMapping("/{folioId}")
-    Result<Usuario> GetByFolio(HttpSession session, @PathVariable String folioId);
+    Result<Usuario> getByFolio(HttpSession session, @PathVariable String folioId);
 
     @PostMapping("/post")
-    Result<Void> Post(HttpSession session, @RequestBody Result<Usuario> request) throws InvalidArgument;
+    Result<Void> post(HttpSession session, @RequestBody Result<Usuario> request) throws InvalidArgument;
 
     @PostMapping("/put")
-    Result<Void> Put(HttpSession session, @RequestBody Result<Usuario> request) throws InvalidArgument;
+    Result<Void> put(HttpSession session, @RequestBody Result<Usuario> request) throws InvalidArgument;
 
     @PostMapping("/delete/{folioId}")
-    Result<Void> Delete(HttpSession session, @PathVariable String folioId);
+    Result<Void> delete(HttpSession session, @PathVariable String folioId);
 }

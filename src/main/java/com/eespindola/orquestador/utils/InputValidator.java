@@ -25,7 +25,7 @@ public class InputValidator {
         validator.validate(target, bindingResult);
 
         if(bindingResult.hasErrors()){
-            throw new InvalidArgument(bindingResult, FolioRequest.getFolio());
+            throw new InvalidArgument(bindingResult, FolioUtils.createFolioRequest());
         }
 //        return bindingResult;
     }
