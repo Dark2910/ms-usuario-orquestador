@@ -15,7 +15,7 @@ public class OrquestadorController {
     @Autowired
     OrquestadorService service;
 
-    @PostMapping
+    @PostMapping("/all")
     public Result<Usuario> orquesatdorGetAll(
             HttpSession session
     ) {

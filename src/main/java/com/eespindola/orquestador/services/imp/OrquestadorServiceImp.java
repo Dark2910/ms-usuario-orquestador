@@ -107,6 +107,7 @@ public class OrquestadorServiceImp implements OrquestadorService {
         return response.getBody();
     }
 
+    @AroundAOP
     @Override
     public Result<Void> delete(HttpSession session, String folioId) {
 //        session.setAttribute("session", FolioRequest.CrearFolioRequest());

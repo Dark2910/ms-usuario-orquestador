@@ -68,10 +68,7 @@ public class MyInterceptorAop {
             validarUsuario(usuarios);
         }
 
-        System.out.println("Antes de ejecutar el método interceptado");
-        Object object = joinPoint.proceed(args);
-        System.out.println("Después de ejecutar el método interceptado");
-        return object;
+        return joinPoint.proceed(args);
     }
 
     @After("after()")
