@@ -33,7 +33,7 @@ build/
 
 ### VS Code ###
 .vscode/
-### SonarQube
-.scannerwork
+### SonarQube ###
+#.scannerwork
 ### Docker ###
-Docker/.env
+#Docker/.env

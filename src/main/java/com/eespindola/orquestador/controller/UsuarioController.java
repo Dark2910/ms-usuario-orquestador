@@ -3,27 +3,33 @@ package com.eespindola.orquestador.controller;
 import com.eespindola.orquestador.exceptions.InvalidArgument;
 import com.eespindola.orquestador.models.dto.Result;
 import com.eespindola.orquestador.models.Usuario;
-import com.eespindola.orquestador.services.OrquestadorService;
+import com.eespindola.orquestador.services.UsuarioService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/orquestador")
-public class OrquestadorController {
+public class UsuarioController {
+
+    private final UsuarioService service;
 
     @Autowired
-    OrquestadorService service;
+    public UsuarioController(
+            UsuarioService usuarioService
+    ){
+      this.service = usuarioService;
+    }
 
-    @PostMapping("/all")
-    public Result<Usuario> orquesatdorGetAll(
+    @GetMapping("/all")
+    public Result<Usuario> getAll(
             HttpSession session
     ) {
         return service.getAll(session);
     }
 
-    @PostMapping("/{folioId}")
-    public Result<Usuario> orquestadorGetByFolio(
+    @GetMapping("/{folioId}")
+    public Result<Usuario> getByFolio(
             HttpSession session,
             @PathVariable String folioId
     ) {
@@ -31,23 +37,23 @@ public class OrquestadorController {
     }
 
     @PostMapping("/post")
-    public Result<Void> orquestadorPost(
+    public Result<Void> post(
             HttpSession session,
-            @RequestBody Result<Usuario> request
+            @RequestBody Result<Usuario> body
     ) throws InvalidArgument {
-        return service.post(session, request);
+        return service.post(session, body);
     }
 
-    @PostMapping("/put")
-    public Result<Void> orquestadorPut(
+    @PutMapping("/put")
+    public Result<Void> put(
             HttpSession session,
-            @RequestBody Result<Usuario> request
+            @RequestBody Result<Usuario> body
     ) throws InvalidArgument {
-        return service.put(session, request);
+        return service.put(session, body);
     }
 
-    @PostMapping("/delete/{folioId}")
-    public Result<Void> orquestadorDelete(
+    @DeleteMapping("/delete/{folioId}")
+    public Result<Void> delete(
             HttpSession session,
             @PathVariable String folioId
     ) {

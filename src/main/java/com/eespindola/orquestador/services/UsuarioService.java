@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-public interface OrquestadorService {
+public interface UsuarioService {
 
     @PostMapping
     Result<Usuario> getAll(HttpSession session);
@@ -17,10 +17,10 @@ public interface OrquestadorService {
     Result<Usuario> getByFolio(HttpSession session, @PathVariable String folioId);
 
     @PostMapping("/post")
-    Result<Void> post(HttpSession session, @RequestBody Result<Usuario> request) throws InvalidArgument;
+    Result<Void> post(HttpSession session, @RequestBody Result<Usuario> body) throws InvalidArgument;
 
     @PostMapping("/put")
-    Result<Void> put(HttpSession session, @RequestBody Result<Usuario> request) throws InvalidArgument;
+    Result<Void> put(HttpSession session, @RequestBody Result<Usuario> body) throws InvalidArgument;
 
     @PostMapping("/delete/{folioId}")
     Result<Void> delete(HttpSession session, @PathVariable String folioId);

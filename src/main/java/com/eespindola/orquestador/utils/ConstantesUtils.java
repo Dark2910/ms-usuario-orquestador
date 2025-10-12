@@ -17,23 +17,23 @@ public class ConstantesUtils {
     public static final String ENDPOINT_POST = "http://localhost:8083/usuarioAPI/post";
     public static final String ENDPOINT_PUT = "http://localhost:8084/usuarioAPI/put";
     public static final String ENDPOINT_DELETE = "http://localhost:8085/usuarioAPI/delete/{folioId}";
-//
-//    public static final String ENDPOINT_GET_ALL_JPA = "http://localhost:8081/usuarioAPI/jpa";
-//    public static final String ENDPOINT_GET_BY_FOLIO_JPA = "http://localhost:8082/usuarioAPI/jpa/{folioId}";
-//    public static final String ENDPOINT_POST_JPA = "http://localhost:8083/usuarioAPI/jpa/post";
-//    public static final String ENDPOINT_PUT_JPA = "http://localhost:8084/usuarioAPI/jpa/put";
-//    public static final String ENDPOINT_DELETE_JPA = "http://localhost:8085/usuarioAPI/delete/jpa/{folioId}";
 
-//    public static final String ENDPOINT_GET_ALL_DOCKER = "http://usuario_getall:8081/usuarioAPI";
-//    public static final String ENDPOINT_GET_BY_FOLIO_DOCKER = "http://usuario_getbyfolio:8082/usuarioAPI/{folioId}";
-//    public static final String ENDPOINT_POST_DOCKER = "http://usuario_post:8083/usuarioAPI/post";
-//    public static final String ENDPOINT_PUT_DOCKER = "http://usuario_put:8084/usuarioAPI/put";
-//    public static final String ENDPOINT_DELETE_DOCKER = "http://usuario_delete:8085/usuarioAPI/delete/{folioId}";
-//
-//    public static final String ENDPOINT_GET_ALL_JPA_DOCKER = "http://usuario_getall:8081/usuarioAPI/jpa";
-//    public static final String ENDPOINT_GET_BY_FOLIO_JPA_DOCKER = "http://usuario_getbyfolio:8082/usuarioAPI/jpa/{folioId}";
-//    public static final String ENDPOINT_POST_JPA_DOCKER = "http://usuario_post:8083/usuarioAPI/jpa/post";
-//    public static final String ENDPOINT_PUT_JPA_DOCKER = "http://usuario_put:8084/usuarioAPI/jpa/put";
-//    public static final String ENDPOINT_DELETE_JPA_DOCKER = "http://usuario_delete:8085/usuarioAPI/delete/jpa/{folioId}";
+    public static final String ENDPOINT_GET_ALL_JPA = "http://localhost:8081/usuarioAPI/jpa";
+    public static final String ENDPOINT_GET_BY_FOLIO_JPA = "http://localhost:8082/usuarioAPI/jpa/{folioId}";
+    public static final String ENDPOINT_POST_JPA = "http://localhost:8083/usuarioAPI/jpa/post";
+    public static final String ENDPOINT_PUT_JPA = "http://localhost:8084/usuarioAPI/jpa/put";
+    public static final String ENDPOINT_DELETE_JPA = "http://localhost:8085/usuarioAPI/delete/jpa/{folioId}";
+
+    public static final String ENDPOINT_GET_ALL_DOCKER = "http://usuario-getall:8081/usuarioAPI";
+    public static final String ENDPOINT_GET_BY_FOLIO_DOCKER = "http://usuario-getbyfolio:8082/usuarioAPI/{folioId}";
+    public static final String ENDPOINT_POST_DOCKER = "http://usuario-post:8083/usuarioAPI/post";
+    public static final String ENDPOINT_PUT_DOCKER = "http://usuario-put:8084/usuarioAPI/put";
+    public static final String ENDPOINT_DELETE_DOCKER = "http://usuario-delete:8085/usuarioAPI/delete/{folioId}";
+
+    public static final String ENDPOINT_GET_ALL_JPA_DOCKER = "http://usuario-getall:8081/usuarioAPI/jpa";
+    public static final String ENDPOINT_GET_BY_FOLIO_JPA_DOCKER = "http://usuario-getbyfolio:8082/usuarioAPI/jpa/{folioId}";
+    public static final String ENDPOINT_POST_JPA_DOCKER = "http://usuario-post:8083/usuarioAPI/jpa/post";
+    public static final String ENDPOINT_PUT_JPA_DOCKER = "http://usuario-put:8084/usuarioAPI/jpa/put";
+    public static final String ENDPOINT_DELETE_JPA_DOCKER = "http://usuario-delete:8085/usuarioAPI/delete/jpa/{folioId}";
 
 }
